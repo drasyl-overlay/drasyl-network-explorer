@@ -1,6 +1,76 @@
-import {useEffect, useMemo} from 'react'
+import React, {useEffect, useMemo} from 'react'
 import {useParams} from 'react-router-dom'
 import {useStore} from "./Store";
+import Identicon from 'react-identicons';
+import {Node} from "./api";
+
+const Children = ({children}: {
+    children: Node[]
+}) => {
+    return (
+        <div>
+            <table className="min-w-max w-full table-auto">
+                <thead>
+                <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th className="py-1 px-2 text-left">Children</th>
+                </tr>
+                </thead>
+                <tbody className="text-gray-600 text-sm font-light">
+                {children.length > 0 ? children.map((node) => (
+                    <tr className="border-b border-gray-200 hover:bg-gray-100">
+                        <td className="py-2 px-2 text-left whitespace-nowrap">
+                            <div className="flex items-center">
+                                <div className="mr-2">
+                                    <Identicon string={node.address} size={13}/>
+                                </div>
+                                <span className="text-gray-500 font-mono" style={{
+                                    fontSize: '0.6rem'
+                                }} title={node.name}>{node.address}</span>
+                            </div>
+                        </td>
+                    </tr>
+                )) : (
+                    <tr className="border-b border-gray-200 hover:bg-gray-100">
+                        <td className="py-2 px-2 text-center text-xs">
+                            None
+                        </td>
+                    </tr>
+                )}
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+const SuperPeer = ({superPeer}: {
+    superPeer: Node
+}) => {
+    return (
+        <div>
+            <table className="min-w-max w-full table-auto">
+                <thead>
+                <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th className="py-1 px-2 text-left">Super Peers</th>
+                </tr>
+                </thead>
+                <tbody className="text-gray-600 text-sm font-light">
+                <tr className="border-b border-gray-200 hover:bg-gray-100">
+                    <td className="py-2 px-2 text-left whitespace-nowrap">
+                        <div className="flex items-center">
+                            <div className="mr-2">
+                                <Identicon string={superPeer.address} size={13}/>
+                            </div>
+                            <span className="text-gray-500 font-mono" style={{
+                                fontSize: '0.6rem'
+                            }} title={superPeer.name}>{superPeer.address}</span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    )
+}
 
 interface Params {
     address: string
@@ -22,16 +92,24 @@ const NodeDetails = () => {
 
     if (node) {
         return (
-            <div className="absolute top-0 left-0 z-2">
-                <div className="m-2 p-3 max-w-md shadow rounded-sm bg-white">
-                    <h1 style={{
-                        fontSize: '12px',
-                        color: 'rgb(50, 50, 50)',
-                    }}>{node.name}</h1>
-                    <h2 style={{
-                        fontSize: '10px',
-                        color: 'rgb(173, 173, 173)',
-                    }}>{node.address}</h2>
+            <div className="mt-3 p-3 shadow rounded-sm bg-white divide-y" style={{width: '450px'}}>
+                <div className="mb-1.5 flex">
+                    <div className="p-1">
+                        <Identicon string={node.address} size={25}/>
+                    </div>
+                    <div className="ml-2 pr-1">
+                        <p className="text-sm">{node.name}</p>
+                        <p className="text-gray-500 font-mono" style={{
+                            fontSize: '0.6rem'
+                        }}>{node.address}</p>
+                    </div>
+                </div>
+                <div className="mt-1.5 pt-1">
+                    {!node.superPeer ? (
+                        <Children children={nodes.filter(({superPeer}) => node.address === superPeer)}/>
+                    ) : (
+                        <SuperPeer superPeer={nodes.find(({address}) => address === node.superPeer) as Node}/>
+                    )}
                 </div>
             </div>
         )
