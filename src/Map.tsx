@@ -90,11 +90,7 @@ const Map = () => {
     }, [activeNode, setNodeFeatureState])
 
     return (
-        <div style={{
-            position: "relative",
-            width: "100vw",
-            height: "100vh"
-        }}>
+        <div className="h-screen w-screen relative">
             <ReactMapGL
                 {...viewport}
                 width="100%"

@@ -1,5 +1,4 @@
 import {useEffect, useMemo} from 'react'
-
 import {useParams} from 'react-router-dom'
 import {useStore} from "./Store";
 
@@ -23,19 +22,8 @@ const NodeDetails = () => {
 
     if (node) {
         return (
-            <div style={{
-                position: 'absolute',
-                width: '450px',
-                zIndex: 2,
-                background: 'rgb(252, 252, 252)',
-                boxShadow: 'rgb(0 0 0 / 8%) 0px 0px 6px',
-                borderRadius: '4px',
-                top: '8px',
-                left: '8px',
-            }}>
-                <div style={{
-                    padding: '16px',
-                }}>
+            <div className="absolute top-0 left-0 z-2">
+                <div className="m-2 p-3 max-w-md shadow rounded-sm bg-white">
                     <h1 style={{
                         fontSize: '12px',
                         color: 'rgb(50, 50, 50)',
