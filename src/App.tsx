@@ -16,8 +16,8 @@ const App = () => {
                         <div className="absolute top-0 left-0 z-2 ml-3 mt-3">
                             <a href="/">
                                 <img src={logo} alt="logo" style={{
-                                height: '40px'
-                            }}/>
+                                    height: '40px'
+                                }}/>
                             </a>
 
                             <Switch>

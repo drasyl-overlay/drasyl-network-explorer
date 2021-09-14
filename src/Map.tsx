@@ -21,24 +21,11 @@ const Map = () => {
 
     const onNodeClick = useCallback((address: string) => {
         history.replace(`/nodes/${encodeURIComponent(address)}`)
-
-        // if (activeNodeAddressRef.current !== address) {
-        //     if (activeNodeAddressRef.current) {
-        //         setNodeFeatureState(activeNodeAddressRef.current, {active: false})
-        //     }
-        //     setNodeFeatureState(address, {active: true})
-        // }
-        // activeNodeAddressRef.current = address
     }, [history])
 
     const onMapClick = useCallback(() => {
         // unselect active node
         history.replace('/')
-
-        // if (activeNodeAddressRef.current) {
-        //     setNodeFeatureState(activeNodeAddressRef.current, {active: false})
-        //     activeNodeAddressRef.current = null
-        // }
     }, [history])
 
     const mapRef = useRef<MapRef>(null)
@@ -66,11 +53,6 @@ const Map = () => {
             setTimeout(() => setNodeFeatureState(address, state), 100)
         }
     }, [])
-
-    // useEffect(() => {
-    //     const lastSegment = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1)
-    //     setNodeFeatureState(lastSegment, {active: true})
-    // }, [activeNode]);
 
     useEffect(() => {
         // Set node feature state to contain active status
