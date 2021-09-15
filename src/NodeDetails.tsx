@@ -93,7 +93,7 @@ const NodeDetails = () => {
 
     if (node) {
         return (
-            <div className="mt-3 p-5 shadow rounded-sm bg-white divide-y" style={{width: '550px'}}>
+            <div className="mt-3 p-5 shadow rounded-sm bg-white divide-y overflow-x-auto" style={{maxWidth: 'calc(100vw - 1.5rem'}}>
                 <div className="pb-1 flex items-center space-x-3">
                     <div>
                         <Identicon string={node.address} size={30}/>
