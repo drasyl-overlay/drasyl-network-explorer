@@ -1,9 +1,10 @@
 import React, {useEffect, useMemo} from 'react'
 import {useParams} from 'react-router-dom'
-import {useStore} from "./Store";
+import {useStore} from './Store';
 import Identicon from 'react-identicons';
-import {Node} from "./api";
-import "@fontsource/inconsolata/600.css";
+import {Node} from './api';
+import '@fontsource/inconsolata/600.css';
+import {generateMnemonicFromAddress} from './Util';
 
 const Children = ({children}: {
     children: Node[]
@@ -26,7 +27,7 @@ const Children = ({children}: {
                                 </div>
                                 <span className="text-gray-500 text-sm" style={{
                                     fontFamily: 'Inconsolata',
-                                }} title={node.name}>{node.address}</span>
+                                }} title={generateMnemonicFromAddress(node.address)}>{node.address}</span>
                             </div>
                         </td>
                     </tr>
@@ -63,7 +64,7 @@ const SuperPeer = ({superPeer}: {
                             </div>
                             <span className="text-gray-500 text-sm" style={{
                                 fontFamily: 'Inconsolata',
-                            }} title={superPeer.name}>{superPeer.address}</span>
+                            }} title={generateMnemonicFromAddress(superPeer.address)}>{superPeer.address}</span>
                         </div>
                     </td>
                 </tr>
@@ -99,7 +100,7 @@ const NodeDetails = () => {
                         <Identicon string={node.address} size={30}/>
                     </div>
                     <div>
-                        <p className="text-sm whitespace-nowrap overflow-ellipsis">{node.name}</p>
+                        <p className="text-sm whitespace-nowrap overflow-ellipsis">{generateMnemonicFromAddress(node.address)}</p>
                         <p className="text-gray-500 text-sm" style={{
                             fontFamily: 'Inconsolata',
                         }}>{node.address}</p>

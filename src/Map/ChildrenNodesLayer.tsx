@@ -16,8 +16,7 @@ const ChildrenNodeLayer = () => {
                         coordinates: [node.location.longitude, node.location.latitude],
                     },
                     properties: {
-                        address: node.address,
-                        name: node.name,
+                        address: node.address
                     },
                 })
             }),
