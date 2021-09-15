@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import {useStore} from "./Store";
 import Identicon from 'react-identicons';
 import {Node} from "./api";
+import "@fontsource/inconsolata/600.css";
 
 const Children = ({children}: {
     children: Node[]
@@ -12,26 +13,26 @@ const Children = ({children}: {
             <table className="min-w-max w-full table-auto">
                 <thead>
                 <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                    <th className="py-1 px-2 text-left">Children</th>
+                    <th className="py-3 px-3 text-left">Children</th>
                 </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
                 {children.length > 0 ? children.map((node) => (
                     <tr className="border-b border-gray-200 hover:bg-gray-100">
-                        <td className="py-2 px-2 text-left whitespace-nowrap">
+                        <td className="py-3 px-3 text-left whitespace-nowrap">
                             <div className="flex items-center">
                                 <div className="mr-2">
                                     <Identicon string={node.address} size={13}/>
                                 </div>
-                                <span className="text-gray-500 font-mono" style={{
-                                    fontSize: '0.6rem'
+                                <span className="text-gray-500 text-sm" style={{
+                                    fontFamily: 'Inconsolata',
                                 }} title={node.name}>{node.address}</span>
                             </div>
                         </td>
                     </tr>
                 )) : (
                     <tr className="border-b border-gray-200 hover:bg-gray-100">
-                        <td className="py-2 px-2 text-center text-xs">
+                        <td className="py-3 px-3 text-center text-xs">
                             None
                         </td>
                     </tr>
@@ -50,18 +51,18 @@ const SuperPeer = ({superPeer}: {
             <table className="min-w-max w-full table-auto">
                 <thead>
                 <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                    <th className="py-1 px-2 text-left">Super Peers</th>
+                    <th className="py-3 px-3 text-left">Super Peers</th>
                 </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
                 <tr className="border-b border-gray-200 hover:bg-gray-100">
-                    <td className="py-2 px-2 text-left whitespace-nowrap">
+                    <td className="py-3 px-3 text-left whitespace-nowrap">
                         <div className="flex items-center">
                             <div className="mr-2">
                                 <Identicon string={superPeer.address} size={13}/>
                             </div>
-                            <span className="text-gray-500 font-mono" style={{
-                                fontSize: '0.6rem'
+                            <span className="text-gray-500 text-sm" style={{
+                                fontFamily: 'Inconsolata',
                             }} title={superPeer.name}>{superPeer.address}</span>
                         </div>
                     </td>
@@ -92,19 +93,19 @@ const NodeDetails = () => {
 
     if (node) {
         return (
-            <div className="mt-3 p-3 shadow rounded-sm bg-white divide-y" style={{width: '450px'}}>
-                <div className="mb-1.5 flex">
-                    <div className="p-1">
-                        <Identicon string={node.address} size={25}/>
+            <div className="mt-3 p-5 shadow rounded-sm bg-white divide-y" style={{width: '550px'}}>
+                <div className="pb-1 flex items-center space-x-3">
+                    <div>
+                        <Identicon string={node.address} size={30}/>
                     </div>
-                    <div className="ml-2 pr-1">
-                        <p className="text-sm">{node.name}</p>
-                        <p className="text-gray-500 font-mono" style={{
-                            fontSize: '0.6rem'
+                    <div>
+                        <p className="text-sm whitespace-nowrap overflow-ellipsis">{node.name}</p>
+                        <p className="text-gray-500 text-sm" style={{
+                            fontFamily: 'Inconsolata',
                         }}>{node.address}</p>
                     </div>
                 </div>
-                <div className="mt-1.5 pt-1">
+                <div className="mt-1.5 pt-2">
                     {!node.superPeer ? (
                         <Children children={nodes.filter(({superPeer}) => node.address === superPeer)}/>
                     ) : (
