@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 import {useStore} from './Store';
 import Identicon from 'react-identicons';
 import {Node} from './api';
-import '@fontsource/inconsolata/600.css';
 import {generateMnemonicFromAddress} from './Util';
 
 const Children = ({children}: {
