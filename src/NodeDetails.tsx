@@ -25,9 +25,7 @@ const Children = ({children}: {
                                 <div className="mr-2">
                                     <Identicon string={node.address} size={13}/>
                                 </div>
-                                <span className="text-gray-500 text-sm" style={{
-                                    fontFamily: 'Inconsolata',
-                                }} title={generateMnemonicFromAddress(node.address)}>{node.address}</span>
+                                <span className="text-gray-500 text-sm font-source oldstyle-nums" title={generateMnemonicFromAddress(node.address)}>{node.address}</span>
                             </div>
                         </td>
                     </tr>
@@ -62,9 +60,7 @@ const SuperPeer = ({superPeer}: {
                             <div className="mr-2">
                                 <Identicon string={superPeer.address} size={13}/>
                             </div>
-                            <span className="text-gray-500 text-sm" style={{
-                                fontFamily: 'Inconsolata',
-                            }} title={generateMnemonicFromAddress(superPeer.address)}>{superPeer.address}</span>
+                            <span className="text-gray-500 text-sm font-source oldstyle-nums" title={generateMnemonicFromAddress(superPeer.address)}>{superPeer.address}</span>
                         </div>
                     </td>
                 </tr>
@@ -101,9 +97,7 @@ const NodeDetails = () => {
                     </div>
                     <div>
                         <p className="text-sm whitespace-nowrap overflow-ellipsis">{generateMnemonicFromAddress(node.address)}</p>
-                        <p className="text-gray-500 text-sm" style={{
-                            fontFamily: 'Inconsolata',
-                        }}>{node.address}</p>
+                        <p className="text-gray-500 text-sm font-source oldstyle-nums">{node.address}</p>
                     </div>
                 </div>
                 <div className="mt-1.5 pt-2">
