@@ -121,7 +121,7 @@ const Map = () => {
                 }}
                 mapboxApiAccessToken="pk.eyJ1IjoiaGJvcm5ob2xkdCIsImEiOiJjanU5b2J6NjIyaTF6M3lzYXVhc3RrNmk4In0.zgOFFOmzLfBnuPgYjh31QA"
             >
-                <SuperNodeRegistrationsLayer/>
+                {/*<SuperNodeRegistrationsLayer/>*/}
                 <SuperNodesLayer/>
                 <ChildrenNodesLayer/>
             </ReactMapGL>
