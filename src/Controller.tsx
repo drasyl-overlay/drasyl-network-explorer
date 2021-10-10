@@ -7,7 +7,7 @@ const ControllerProvider = ({children}: {
     const {setNodes} = useStore()
 
     useEffect(() => {
-        fetch('/network-1.json')
+        fetch('https://ping.drasyl.network/network-1.json')
             .then(resp => resp.json())
             .then(json => setNodes(json))
     }, [setNodes])
