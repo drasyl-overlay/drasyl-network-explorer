@@ -6,5 +6,5 @@ export type Location = {
 export type Node = {
     address: string,
     location: Location,
-    superPeer?: string
+    superPeers?: string[]
 }

@@ -33,7 +33,9 @@
       "longitude": 9.8721,
       "latitude": 53.6389
     },
-    "superPeer": "365f2b5bd5f05e180fb5c77f3b06dd64279c28ba5d64cdd7d465c6b4c18b4fc6"
+    "superPeers": [
+      "365f2b5bd5f05e180fb5c77f3b06dd64279c28ba5d64cdd7d465c6b4c18b4fc6"
+    ]
   },
   {
     "address": "89c7ae2e08fef98e136330f45152a3efdafb6107ac22e04ef6a8f856aec70fee",
@@ -41,6 +43,8 @@
       "longitude": 10.21604235346711,
       "latitude": 53.48497739073475
     },
-    "superPeer": "365f2b5bd5f05e180fb5c77f3b06dd64279c28ba5d64cdd7d465c6b4c18b4fc6"
+    "superPeers": [
+      "365f2b5bd5f05e180fb5c77f3b06dd64279c28ba5d64cdd7d465c6b4c18b4fc6"
+    ]
   }
 ]

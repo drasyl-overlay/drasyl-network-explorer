@@ -4,7 +4,6 @@ import {useCallback, useEffect, useRef} from "react";
 import {useHistory} from "react-router-dom";
 import SuperNodesLayer from "./Map/SuperNodesLayer";
 import ChildrenNodesLayer from "./Map/ChildrenNodesLayer";
-import SuperNodeRegistrationsLayer from "./Map/SuperNodeRegistrationsLayer";
 import {useStore} from "./Store";
 
 const Map = () => {

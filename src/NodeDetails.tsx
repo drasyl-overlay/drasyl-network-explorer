@@ -41,8 +41,8 @@ const Children = ({children}: {
     )
 }
 
-const SuperPeer = ({superPeer}: {
-    superPeer: Node
+const SuperPeer = ({superPeers}: {
+    superPeers: Node[]
 }) => {
     return (
         <div>
@@ -54,14 +54,24 @@ const SuperPeer = ({superPeer}: {
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
                 <tr className="border-b border-gray-200 hover:bg-gray-100">
-                    <td className="py-3 px-3 text-left whitespace-nowrap">
-                        <div className="flex items-center">
-                            <div className="mr-2">
-                                <Identicon string={superPeer.address} size={13}/>
-                            </div>
-                            <span className="text-gray-500 text-sm font-source oldstyle-nums" title={generateMnemonicFromAddress(superPeer.address)}>{superPeer.address}</span>
-                        </div>
-                    </td>
+                    {superPeers.length > 0 ? superPeers.map((node) => (
+                        <tr className="border-b border-gray-200 hover:bg-gray-100">
+                            <td className="py-3 px-3 text-left whitespace-nowrap">
+                                <div className="flex items-center">
+                                    <div className="mr-2">
+                                        <Identicon string={node.address} size={13}/>
+                                    </div>
+                                    <span className="text-gray-500 text-sm font-source oldstyle-nums" title={generateMnemonicFromAddress(node.address)}>{node.address}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    )) : (
+                        <tr className="border-b border-gray-200 hover:bg-gray-100">
+                            <td className="py-3 px-3 text-center text-xs">
+                                None
+                            </td>
+                        </tr>
+                    )}
                 </tr>
                 </tbody>
             </table>
@@ -100,10 +110,10 @@ const NodeDetails = () => {
                     </div>
                 </div>
                 <div className="mt-1.5 pt-2">
-                    {!node.superPeer ? (
-                        <Children children={nodes.filter(({superPeer}) => node.address === superPeer)}/>
+                    {!node.superPeers ? (
+                        <Children children={nodes.filter(({superPeers}) => superPeers?.includes(node.address))}/>
                     ) : (
-                        <SuperPeer superPeer={nodes.find(({address}) => address === node.superPeer) as Node}/>
+                        <SuperPeer superPeers={nodes.filter(({address}) => node.superPeers?.includes(address))}/>
                     )}
                 </div>
             </div>

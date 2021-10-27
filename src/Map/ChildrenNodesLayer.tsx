@@ -8,7 +8,7 @@ const ChildrenNodeLayer = () => {
     const data: GeoJSON.FeatureCollection = useMemo(() => {
         return {
             type: 'FeatureCollection',
-            features: nodes.filter(({superPeer}) => superPeer).map((node) => {
+            features: nodes.filter(({superPeers}) => superPeers).map((node) => {
                 return ({
                     type: 'Feature',
                     geometry: {
