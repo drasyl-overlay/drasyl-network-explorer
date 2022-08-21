@@ -1,0 +1,12 @@
+server.error.whitelabel.enabled: false
+logging.level.root: INFO
+
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://..."
+
+network:
+  geoip-salt: ""
+  # https://www.latlong.net/convert-address-to-lat-long.html
+  static-locations: []
