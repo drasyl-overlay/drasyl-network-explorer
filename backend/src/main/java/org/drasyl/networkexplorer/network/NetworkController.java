@@ -104,6 +104,7 @@ public class NetworkController {
     }
 
     public void addTopology(final InetAddress address, final Topology topology) {
+        logger.info("Got topology from `{}`: {}", address, topology);
         topologies.put(address, topology);
     }
 
