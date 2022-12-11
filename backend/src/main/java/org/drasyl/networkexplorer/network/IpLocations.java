@@ -25,7 +25,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Utility class for IP geolocation.
  */
 public class IpLocations {
-    public static final int MAX_OFFSET_METERS = 500;
+    public static final int MAX_OFFSET_METERS = 5000;
 
     private static final Logger LOG = LoggerFactory.getLogger(IpLocations.class);
     private static final DatabaseReader DB_READER;
