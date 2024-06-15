@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag drasyl/drasyl-network-explorer:$(date +%s)
