@@ -21,6 +21,9 @@
             <resource>
                 <directory>build</directory>
                 <targetPath>public</targetPath>
+                <excludes>
+                    <exclude>**/.gitkeep</exclude>
+                </excludes>
             </resource>
         </resources>
 
