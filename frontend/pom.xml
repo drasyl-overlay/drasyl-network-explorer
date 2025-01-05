@@ -21,9 +21,6 @@
             <resource>
                 <directory>build</directory>
                 <targetPath>public</targetPath>
-                <excludes>
-                    <exclude>**/.gitkeep</exclude>
-                </excludes>
             </resource>
         </resources>
 
@@ -56,6 +53,21 @@
                         <configuration>
                             <executable>yarn</executable>
                             <arguments>
+                                <argument>build</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>yarn build (compile) 2</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <executable>ls</executable>
+                            <arguments>
+                                <argument>-l</argument>
                                 <argument>build</argument>
                             </arguments>
                         </configuration>
