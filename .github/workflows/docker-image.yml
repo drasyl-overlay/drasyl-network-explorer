@@ -18,5 +18,12 @@ jobs:
       env:
         NODE_OPTIONS: "--openssl-legacy-provider"
       run: mvn -B package --file pom.xml
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag drasyl/drasyl-network-explorer:$(date +%s)
+    - name: Build and publish Docker image
+      uses: ilteoood/docker_buildx@1.1.0
+      with:
+        tag: latest
+        imageName: drasyl/drasyl-network-explorer
+        platform: linux/amd64
+        publish: true
+        dockerUser: ${{ secrets.DOCKER_HUB_USER }}
+        dockerPassword: ${{ secrets.DOCKER_HUB_PASSWORD }}
