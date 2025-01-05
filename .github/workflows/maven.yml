@@ -5,7 +5,6 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -27,7 +26,22 @@ jobs:
     - name: Build with Maven
       env:
         NODE_OPTIONS: "--openssl-legacy-provider"
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -X
+
+    - name: Test
+      run: ls frontend/build
+
+    - name: Test 2
+      run: unzip -l ./frontend/target/frontend-1.0-SNAPSHOT.jar
+
+    - name: Test 3
+      run: pwd
+
+    - name: Test 4
+      run: find .
+
+    - name: Test 5
+      run: ls /home/runner/work/drasyl-network-explorer/drasyl-network-explorer/frontend/build
 
     - name: Publish artifact
       uses: actions/upload-artifact@v3
