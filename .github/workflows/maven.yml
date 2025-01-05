@@ -25,6 +25,8 @@ jobs:
         cache: maven
 
     - name: Build with Maven
+      env:
+        NODE_OPTIONS: "--openssl-legacy-provider"
       run: mvn -B package --file pom.xml
 
     - name: Publish artifact
